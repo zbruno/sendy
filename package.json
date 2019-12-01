@@ -10,6 +10,7 @@
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "storybook": "start-storybook -p 6006 --docs",
     "build-storybook": "build-storybook --docs",
+    "deploy-storybook": "storybook-to-ghpages",
     "test": "jest",
     "testw": "jest --watch",
     "test:generate-output": "jest --json --outputFile=.jest-test-results.json"
@@ -62,6 +63,7 @@
     "@storybook/addons": "^5.2.5",
     "@storybook/react": "^5.2.5",
     "@storybook/source-loader": "^5.2.5",
+    "@storybook/storybook-deployer": "^2.8.1",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "babel-plugin-mobx-deep-action": "^1.6.1",
