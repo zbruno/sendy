@@ -1,0 +1,59 @@
+.btn {
+  @apply relative font-bold py-3 px-8 rounded inline-flex items-center border border-transparent;
+
+  &.primary{
+    @apply text-white bg-purple-500;
+
+    &:hover {
+      @apply bg-purple-600;
+    }
+  }
+
+  &.secondary {
+    @apply text-purple-500 bg-transparent border-purple-500;
+
+    &:hover {
+      @apply text-purple-600 border-purple-600;
+    }
+  }
+
+  &.disabled {
+    @apply cursor-not-allowed bg-gray-300 text-gray-500 pointer-events-none;
+  }
+
+  & * {
+    @apply transition-all;
+  }
+
+  & .btn-text {
+    transform: translateX(0);
+  }
+
+  & .btn-icon {
+    @apply fill-current mr-2;
+    transform: translateX(0);
+  }
+
+  & .btn-loader {
+    @apply absolute inset-0 left-auto mr-4 mt-2 transition-all opacity-0;
+    transform: translateX(20px);
+  }
+
+  &.loading {
+    & .btn-text {
+      transform: translateX(-15px);
+    }
+
+    & .btn-icon {
+      transform: translateX(-15px);
+    }
+
+    & .btn-loader {
+      @apply opacity-100;
+      transform: translateX(0);
+    }
+  }
+}
+
+
+

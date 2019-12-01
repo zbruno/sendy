@@ -1,0 +1,7 @@
+/node_modules
+/public/css
+/public/js
+.env
+.DS_Store
+.jest-test-results.json
+/coverage

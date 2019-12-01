@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loader UI snapshots renders purple 1`] = `
+<div
+  className="inline-block h-6 w-6 "
+>
+  <div
+    className="absolute opacity-100 border-purple-500 border-2 rounded-full animation-ripple-4 animation-1s animation-cubic-bezier animation-infinite"
+  />
+  <div
+    className="absolute opacity-100 border-purple-500 border-2 rounded-full animation-ripple-4 animation-1s animation-cubic-bezier animation-infinite animation-delay-.5s"
+  />
+</div>
+`;

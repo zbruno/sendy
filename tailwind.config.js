@@ -1,0 +1,105 @@
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        purple: {
+          100: '#f0eff2',
+          200: '#d3d0d8',
+          300: '#a7a2b2',
+          400: '#7b748b',
+          500: '#5e5672',
+          600: '#453f53',
+          700: '#342f3f',
+          800: '#23202a',
+          900: '#121015',
+        },
+      },
+      fontFamily: {
+        sans: ['Nunito', 'system - ui', 'BlinkMacSystemFont', '-apple - system', 'sans - serif'],
+      },
+    },
+    transitionProperty: {
+      none: 'none',
+      all: 'all',
+      color: 'color',
+      bg: 'background-color',
+      border: 'border-color',
+      colors: ['color', 'background-color', 'border-color'],
+      opacity: 'opacity',
+      transform: 'transform',
+    },
+    animations: {
+      'ripple-20': {
+        '0%': {
+          top: '40px',
+          left: '40px',
+          width: '0',
+          height: '0',
+          opacity: '1',
+        },
+        '100%': {
+          top: '0px',
+          left: '0px',
+          width: '80px',
+          height: '80px',
+          opacity: '0',
+        },
+      },
+      'ripple-4': {
+        '0%': {
+          top: '16px',
+          left: '16px',
+          width: '0',
+          height: '0',
+          opacity: '1',
+        },
+        '100%': {
+          top: '0px',
+          left: '0px',
+          width: '32px',
+          height: '32px',
+          opacity: '0',
+        },
+      },
+    },
+    animationDelay: {
+      '.5s': '.5s',
+    },
+    animationTimingFunction: {
+      'cubic-bezier': 'cubic-bezier(0, 0.2, 0.8, 1)',
+    },
+  },
+  variants: {
+    transitionProperty: ['responsive'],
+    transitionDuration: ['responsive'],
+    transitionTimingFunction: ['responsive'],
+    transitionDelay: ['responsive'],
+    willChange: ['responsive'],
+    animations: ['responsive'],
+    animationDuration: ['responsive'],
+    animationTimingFunction: ['responsive'],
+    animationDelay: ['responsive'],
+    animationIterationCount: ['responsive'],
+    animationDirection: ['responsive'],
+    animationFillMode: ['responsive'],
+    animationPlayState: ['responsive'],
+    transform: ['responsive'],
+    transformOrigin: ['responsive'],
+    translate: ['responsive'],
+    scale: ['responsive'],
+    rotate: ['responsive'],
+    skew: ['responsive'],
+    perspective: ['responsive'],
+    perspectiveOrigin: ['responsive'],
+    transformStyle: ['responsive'],
+    backfaceVisibility: ['responsive'],
+    transformBox: ['responsive'],
+  },
+  plugins: [
+    require('tailwindcss-transitions')(),
+    require('tailwindcss-animations')(),
+    require('tailwindcss-transforms')({
+      '3d': false,
+    }),
+  ],
+};

@@ -1,0 +1,31 @@
+.alert-container {
+  @apply flex items-end flex-col fixed p-6 inset-0 z-50 pointer-events-none;
+}
+
+.alert-text {
+  @apply mb-4;
+
+  &:last-of-type {
+    @apply mb-0;
+  }
+}
+
+.alert {
+  @apply p-4 shadow mb-4 pointer-events-auto border-l-4;
+
+  & .inner-container {
+    @apply flex items-center leading-normal;
+  }
+}
+
+.alert-icon {
+  @apply fill-current mr-3;
+}
+
+.alert-text {
+  @apply block font-semibold;
+}
+
+.alert-child {
+  @apply text-sm leading-snug mt-2 opacity-75;
+}

@@ -1,0 +1,102 @@
+version: 2
+
+aliases:
+    - &root ~/sendy
+
+    - &defaults
+        working_directory: *root
+
+    - &prepare-environment
+        run:
+            name: Prepare Environment
+            command: mkdir test-results
+
+    - &node-image circleci/node:12.12.0-stretch
+
+    - &cache-npm-key-base npm-packages-v4-
+    - &cache-npm-key npm-packages-v4-{{ checksum "package-lock.json" }}
+
+    - &npm-cache-restore
+        restore_cache:
+            keys:
+                - *cache-npm-key
+                - *cache-npm-key-base
+
+    - &npm-cache-save
+        save_cache:
+            key: *cache-npm-key
+            paths:
+                - ~/.cache/npm
+
+    - &npm-install
+        run:
+            name: Install Node Dependencies
+            command: npm install
+
+jobs:
+    build-js:
+        <<: *defaults
+        docker:
+            - image: *node-image
+
+        steps:
+            - checkout
+            - <<: *npm-cache-restore
+            - <<: *npm-install
+            - <<: *npm-cache-save
+            - persist_to_workspace:
+                root: *root
+                paths:
+                    - node_modules
+
+    lint-js:
+        <<: *defaults
+        docker:
+            - image: *node-image
+
+        steps:
+            - checkout
+            - <<: *prepare-environment
+            - attach_workspace:
+                at: *root
+            - run:
+                name: Run Eslint
+                command: |
+                    npx eslint resources/js/ --format junit --output-file test-results/eslint/junit.xml
+            - store_test_results:
+                path: test-results
+
+    test-js:
+        <<: *defaults
+        docker:
+            - image: *node-image
+
+        environment:
+            NODE_OPTIONS: --max_old_space_size=4096
+
+        steps:
+            - checkout
+            - attach_workspace:
+                at: *root
+            - <<: *prepare-environment
+            - run:
+                name: Run Jest Tests
+                command: |
+                    npm run test --ci
+                environment:
+                    JEST_JUNIT_OUTPUT: test-results/jest/junit-${CIRCLE_NODE_INDEX}.xml
+            - store_test_results:
+                path: test-results
+
+workflows:
+    version: 2
+
+    build:
+        jobs:
+            - build-js
+            - lint-js:
+                requires:
+                    - build-js
+            - test-js:
+                requires:
+                    - build-js

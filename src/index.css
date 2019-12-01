@@ -1,0 +1,8 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+
+/* Sendy */
+@import "./components/Alert/style.css";
+@import "./components/Button/style.css";
+
+@import "tailwindcss/utilities";
