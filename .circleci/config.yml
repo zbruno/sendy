@@ -62,7 +62,7 @@ jobs:
             - run:
                 name: Run Eslint
                 command: |
-                    npx eslint resources/js/ --format junit --output-file test-results/eslint/junit.xml
+                    npx eslint src/ --format junit --output-file test-results/eslint/junit.xml
             - store_test_results:
                 path: test-results
 
