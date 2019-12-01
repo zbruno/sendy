@@ -12,10 +12,7 @@ const testAlert = {
 describe('Alert UI snapshots', () => {
   test('renders success type and text', () => {
     const component = renderer.create(
-      <Alert
-        title={testAlert.text}
-        type="success"
-      />
+      <Alert title={testAlert.text} type="success" />,
     );
 
     const tree = component.toJSON();

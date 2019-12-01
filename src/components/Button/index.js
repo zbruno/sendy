@@ -27,7 +27,15 @@ class Button extends React.Component {
   };
 
   render() {
-    const { onClick, isDisabled, children, buttonType, isLoading, icon, utilityClasses } = this.props;
+    const {
+      onClick,
+      isDisabled,
+      children,
+      buttonType,
+      isLoading,
+      icon,
+      utilityClasses,
+    } = this.props;
     const shouldAppearDisabled = isDisabled || isLoading;
     const btnClasses = cx({
       btn: true,
