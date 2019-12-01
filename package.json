@@ -1,5 +1,18 @@
 {
-  "private": true,
+  "name": "sendy-ui",
+  "description": "[![CircleCI](https://circleci.com/gh/zbruno/sendy.svg?style=svg)](https://circleci.com/gh/zbruno/sendy)",
+  "version": "0.1.0",
+  "main": "public/main/js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zbruno/sendy.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zbruno/sendy/issues"
+  },
+  "homepage": "https://github.com/zbruno/sendy#readme",
   "scripts": {
     "dev": "npm run development",
     "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
