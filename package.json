@@ -2,7 +2,7 @@
   "name": "sendy-ui",
   "description": "[![CircleCI](https://circleci.com/gh/zbruno/sendy.svg?style=svg)](https://circleci.com/gh/zbruno/sendy)",
   "version": "0.1.2",
-  "main": "public/main/js",
+  "main": "public/main.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zbruno/sendy.git"
