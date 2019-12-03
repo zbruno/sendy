@@ -94,6 +94,7 @@ const tasks = new Listr([
       git().add('.');
       observer.next('Committing files');
       git().commit('Adding built assets');
+      observer.complete();
     }),
   },
   {
