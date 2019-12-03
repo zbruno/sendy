@@ -87,10 +87,6 @@ const tasks = new Listr([
     task: () => exec('npm', ['run', 'deploy-storybook']),
   },
   {
-    title: 'Incrementing version',
-    task: () => exec('npm', ['version', 'patch']),
-  },
-  {
     title: 'Committing files',
     task: () => new Observable(observer => {
       observer.next('Adding files');
@@ -100,8 +96,16 @@ const tasks = new Listr([
     }),
   },
   {
+    title: 'Incrementing version',
+    task: () => exec('npm', ['version', 'patch']),
+  },
+  {
     title: 'Pushing commits',
     task: () => exec('git', ['push']),
+  },
+  {
+    title: 'Publishing package',
+    task: () => exec('npm', ['publish']),
   },
 ]);
 
