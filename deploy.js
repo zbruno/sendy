@@ -72,7 +72,7 @@ const tasks = new Listr([
   },
   {
     title: 'Build style assets',
-    task: () => exec('npm', ['build-styles']),
+    task: () => exec('npm', ['run', 'build-styles']),
   },
   {
     title: 'Build bundle assets',
@@ -80,11 +80,11 @@ const tasks = new Listr([
   },
   {
     title: 'Build Storybook',
-    task: () => exec('npm', ['build-storybook']),
+    task: () => exec('npm', ['run', 'build-storybook']),
   },
   {
     title: 'Deploy Storybook',
-    task: () => exec('npm', ['deploy-storybook']),
+    task: () => exec('npm', ['run', 'deploy-storybook']),
   },
   {
     title: 'Incrementing version',
