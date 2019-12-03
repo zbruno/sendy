@@ -1,6 +1,7 @@
 const Listr = require('listr');
 const execa = require('execa');
 const split = require('split');
+const git = require('simple-git');
 const { merge, Observable } = require('rxjs');
 const { filter } = require('rxjs/operators');
 const streamToObservable = require('@samverschueren/stream-to-observable');
@@ -90,9 +91,9 @@ const tasks = new Listr([
     title: 'Committing files',
     task: () => new Observable(observer => {
       observer.next('Adding files');
-      execa('git', ['add', '.']);
+      git().add('.');
       observer.next('Committing files');
-      execa('git', ['commit', '-m', '"Adding built assets"']);
+      git().commit('Adding built assets');
     }),
   },
   {
@@ -101,7 +102,7 @@ const tasks = new Listr([
   },
   {
     title: 'Pushing commits',
-    task: () => exec('git', ['push']),
+    task: () => git().push(),
   },
   {
     title: 'Publishing package',
