@@ -28,9 +28,9 @@ class Button extends React.Component {
 
   render() {
     const {
-      onClick,
       isDisabled,
       children,
+      onClick,
       buttonType,
       isLoading,
       icon,
@@ -55,9 +55,7 @@ class Button extends React.Component {
         className={btnClasses}
         disabled={shouldAppearDisabled}
         type="button"
-        onClick={
-          !shouldAppearDisabled ? onClick : event => event.preventDefault()
-        }
+        onClick={onClick}
       >
         {icon && (
           <FontAwesomeIcon
