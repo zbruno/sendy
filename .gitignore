@@ -6,3 +6,5 @@
 .jest-test-results.json
 /coverage
 /storybook-static
+/.vscode
+/public
