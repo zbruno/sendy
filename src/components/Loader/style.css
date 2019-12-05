@@ -1,0 +1,3 @@
+.inner-loader {
+  @apply absolute opacity-100 border-2 rounded-full animation-ripple-4 animation-1s animation-cubic-bezier animation-infinite;
+}

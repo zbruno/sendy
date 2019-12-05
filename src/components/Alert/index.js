@@ -8,10 +8,36 @@ import {
   faInfoCircle,
 } from '@fortawesome/free-solid-svg-icons';
 
+// Have to do it this way for Purge CSS to work
+// https://tailwindcss.com/docs/controlling-file-size/
 const alertMapping = {
-  success: { color: 'green', icon: faCheckCircle },
-  danger: { color: 'red', icon: faTimesCircle },
-  info: { color: 'teal', icon: faInfoCircle },
+  success: {
+    colors: {
+      bg: 'bg-green-100',
+      border: 'border-green-500',
+      title: 'text-green-900',
+      icon: 'text-green-500',
+    },
+    icon: faCheckCircle,
+  },
+  danger: {
+    colors: {
+      bg: 'bg-red-100',
+      border: 'border-red-500',
+      title: 'text-red-900',
+      icon: 'text-red-500',
+    },
+    icon: faTimesCircle,
+  },
+  info: {
+    colors: {
+      bg: 'bg-teal-100',
+      border: 'border-teal-500',
+      title: 'text-teal-900',
+      icon: 'text-teal-500',
+    },
+    icon: faInfoCircle,
+  },
 };
 
 class Alert extends React.Component {
@@ -37,26 +63,26 @@ class Alert extends React.Component {
 
   render() {
     const { children, type, title } = this.props;
-    const alert = alertMapping[type];
+    const alertData = alertMapping[type];
     const alertClasses = cx({
       alert: true,
-      [`bg-${alert.color}-100`]: true,
-      [`border-${alert.color}-500`]: true,
+      [alertData.colors.bg]: true,
+      [alertData.colors.border]: true,
     });
 
     return (
       <div className={alertClasses} role="alert">
-        <div className={`inner-container text-${alert.color}-900`}>
+        <div className={`inner-container ${alertData.colors.title}`}>
           <FontAwesomeIcon
-            icon={alert.icon}
-            className={`alert-icon text-${alert.color}-500`}
+            icon={alertData.icon}
+            className={`alert-icon ${alertData.colors.icon}`}
             size="lg"
             fixedWidth
           />
           <span className="alert-text">{title}</span>
         </div>
         {children && (
-          <div className={`alert-child text-${alert.color}-900`}>
+          <div className={`alert-child ${alertData.colors.title}`}>
             {children}
           </div>
         )}

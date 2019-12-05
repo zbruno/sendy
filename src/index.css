@@ -1,8 +1,11 @@
+/* purgecss start ignore */
 @import "tailwindcss/base";
 @import "tailwindcss/components";
+/* purgecss end ignore */
 
 /* Sendy */
 @import "./components/Alert/style.css";
 @import "./components/Button/style.css";
+@import "./components/Loader/style.css";
 
 @import "tailwindcss/utilities";
