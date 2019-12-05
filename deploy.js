@@ -72,11 +72,7 @@ const tasks = new Listr([
     task: () => exec('npm', ['test']),
   },
   {
-    title: 'Build style assets',
-    task: () => exec('npm', ['run', 'build-styles']),
-  },
-  {
-    title: 'Build bundle assets',
+    title: 'Build asset bundle',
     task: () => exec('rollup', ['-c']),
   },
   {
