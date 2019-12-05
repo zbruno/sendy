@@ -5,10 +5,10 @@ exports[`Loader UI snapshots renders purple 1`] = `
   className="inline-block h-6 w-6 "
 >
   <div
-    className="absolute opacity-100 border-purple-500 border-2 rounded-full animation-ripple-4 animation-1s animation-cubic-bezier animation-infinite"
+    className="inner-loader border-purple-500"
   />
   <div
-    className="absolute opacity-100 border-purple-500 border-2 rounded-full animation-ripple-4 animation-1s animation-cubic-bezier animation-infinite animation-delay-.5s"
+    className="inner-loader border-purple-500 animation-delay-.5s"
   />
 </div>
 `;
