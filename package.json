@@ -1,7 +1,7 @@
 {
   "name": "sendy-ui",
   "description": "[![CircleCI](https://circleci.com/gh/zbruno/sendy-ui.svg?style=svg)](https://circleci.com/gh/zbruno/sendy-ui)",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "main": "dist/bundle.js",
   "module": "dist/bundle.es.js",
   "files": [
