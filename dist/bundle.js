@@ -1656,17 +1656,34 @@ var faTimesCircle = {
   icon: [512, 512, [], "f057", "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"]
 };
 
+// https://tailwindcss.com/docs/controlling-file-size/
+
 var alertMapping = {
   success: {
-    color: 'green',
+    colors: {
+      bg: 'bg-green-100',
+      border: 'border-green-500',
+      title: 'text-green-900',
+      icon: 'text-green-500'
+    },
     icon: faCheckCircle
   },
   danger: {
-    color: 'red',
+    colors: {
+      bg: 'bg-red-100',
+      border: 'border-red-500',
+      title: 'text-red-900',
+      icon: 'text-red-500'
+    },
     icon: faTimesCircle
   },
   info: {
-    color: 'teal',
+    colors: {
+      bg: 'bg-teal-100',
+      border: 'border-teal-500',
+      title: 'text-teal-900',
+      icon: 'text-teal-500'
+    },
     icon: faInfoCircle
   }
 };
@@ -1691,24 +1708,24 @@ function (_React$Component) {
           children = _this$props.children,
           type = _this$props.type,
           title = _this$props.title;
-      var alert = alertMapping[type];
+      var alertData = alertMapping[type];
       var alertClasses = classnames((_cx = {
         alert: true
-      }, defineProperty(_cx, "bg-".concat(alert.color, "-100"), true), defineProperty(_cx, "border-".concat(alert.color, "-500"), true), _cx));
+      }, defineProperty(_cx, alertData.colors.bg, true), defineProperty(_cx, alertData.colors.border, true), _cx));
       return React.createElement("div", {
         className: alertClasses,
         role: "alert"
       }, React.createElement("div", {
-        className: "inner-container text-".concat(alert.color, "-900")
+        className: "inner-container ".concat(alertData.colors.title)
       }, React.createElement(FontAwesomeIcon, {
-        icon: alert.icon,
-        className: "alert-icon text-".concat(alert.color, "-500"),
+        icon: alertData.icon,
+        className: "alert-icon ".concat(alertData.colors.icon),
         size: "lg",
         fixedWidth: true
       }), React.createElement("span", {
         className: "alert-text"
       }, title)), children && React.createElement("div", {
-        className: "alert-child text-".concat(alert.color, "-900")
+        className: "alert-child ".concat(alertData.colors.title)
       }, children));
     }
   }]);
@@ -1947,21 +1964,26 @@ Form.Field = function (props) {
   return React.createElement(Field, props);
 };
 
+var sizeClass = {
+  6: 'h-6 w-6',
+  20: 'h-20 w-20'
+};
+
 var Loader = function Loader(_ref) {
   var color = _ref.color,
       size = _ref.size,
       utilityClasses = _ref.utilityClasses;
   return React.createElement("div", {
-    className: "inline-block h-".concat(size, " w-").concat(size, " ").concat(utilityClasses)
+    className: "inline-block ".concat(sizeClass[size], " ").concat(utilityClasses)
   }, React.createElement("div", {
-    className: "absolute opacity-100 ".concat(color, " border-2 rounded-full animation-ripple-4 animation-1s animation-cubic-bezier animation-infinite")
+    className: "inner-loader ".concat(color)
   }), React.createElement("div", {
-    className: "absolute opacity-100 ".concat(color, " border-2 rounded-full animation-ripple-4 animation-1s animation-cubic-bezier animation-infinite animation-delay-.5s")
+    className: "inner-loader ".concat(color, " animation-delay-.5s")
   }));
 };
 
 Loader.propTypes = {
-  size: PropTypes.number,
+  size: PropTypes.oneOf([6, 20]),
   utilityClasses: PropTypes.string,
   color: PropTypes.oneOf(['border-purple-500', 'border-white', 'border-gray-500'])
 };

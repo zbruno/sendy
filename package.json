@@ -1,9 +1,9 @@
 {
   "name": "sendy-ui",
-  "description": "[![CircleCI](https://circleci.com/gh/zbruno/sendy.svg?style=svg)](https://circleci.com/gh/zbruno/sendy)",
+  "description": "[![CircleCI](https://circleci.com/gh/zbruno/sendy-ui.svg?style=svg)](https://circleci.com/gh/zbruno/sendy-ui)",
   "version": "0.1.4",
-  "main": "dist/main.js",
-  "module": "dist/main.es.js",
+  "main": "dist/bundle.js",
+  "module": "dist/bundle.es.js",
   "files": [
     "dist",
     "lib",
@@ -15,19 +15,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zbruno/sendy.git"
+    "url": "git+https://github.com/zbruno/sendy-ui.git"
   },
   "author": "zbruno",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zbruno/sendy/issues"
+    "url": "https://github.com/zbruno/sendy-ui/issues"
   },
-  "homepage": "https://github.com/zbruno/sendy#readme",
+  "homepage": "https://github.com/zbruno/sendy-ui#readme",
   "scripts": {
     "storybook": "start-storybook -p 6006 --docs",
     "build-storybook": "build-storybook --docs",
     "deploy-storybook": "storybook-to-ghpages",
-    "build-styles": "postcss src/index.css -o dist/app.css",
     "deploy": "node ./deploy.js",
     "test": "jest",
     "testw": "jest --watch",
